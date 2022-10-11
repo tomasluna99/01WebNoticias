@@ -1,27 +1,31 @@
-import React from "react";
-import { Card, Button, Badge } from "react-bootstrap";
+import React from "react"; 
+import { Card, Button, Badge } from "react-bootstrap"; 
 
-const ListaNoticias = () => {
+
+//al principio tuve problemas para que me tome los valores de la API al llamarlos mediante el prop "noticia"
+
+const ListaNoticias = ({nuevo}) => { 
+  
   return ( 
     <>
-    <aside className="col-12 col-md-4 bg-ligth ">
-    <Card className="my-1">
-      <Card.Img variant="top" src="holder.js/100px180" />
+    <aside className="col-12 col-md-4 bg-ligth">
+    <Card className="m-4 py-4" >
+      <Card.Img variant="top" src={nuevo.image_url}/>
       <Card.Body>
         <h4>
-        <Badge bg="secondary">
+        <Badge bg="secondary">{nuevo.category}
         </Badge>
         </h4>
-        <Card.Title>Titulo Noticia</Card.Title>
+        <Card.Title>{nuevo.title}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          {nuevo.description}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">Leer</Button> 
       </Card.Body>
     </Card> 
     </aside>
-    </>);
-}
+    </>
+    );
+};
  
 export default ListaNoticias;
